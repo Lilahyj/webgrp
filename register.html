@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>會員註冊 - 香港雷藏寺</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap');
+        
+        .register-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 5%;
+            background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), 
+                        url('https://via.placeholder.com/1920x1080?text=香港雷藏寺') center/cover no-repeat;
+        }
+        
+        .register-box {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            padding: 3rem;
+            animation: fadeInUp 0.6s ease;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .register-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .register-title h2 {
+            font-size: 2rem;
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .register-title p {
+            color: #666;
+        }
+        
+        .register-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .register-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .register-form input, 
+        .register-form select {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .register-form input:focus, 
+        .register-form select:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        .register-btn {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+        }
+        
+        .login-link {
+            text-align: center;
+            margin-top: 2rem;
+            color: var(--dark-color);
+        }
+        
+        .login-link a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+        
+
+        @media (max-width: 768px) {
+            
+            .register-box {
+                padding: 2rem 1.5rem;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <button class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="mobile-nav">
+                <ul class="mobile-nav-links">
+                    <li><a href="index.html"><i class="fas fa-home"></i> 主頁</a></li>
+                    <li><a href="activities.html"><i class="fas fa-calendar-alt"></i> 活動</a></li>
+                    <li><a href="ceremonies.html"><i class="fas fa-place-of-worship"></i> 法會</a></li>
+                    <li><a href="register-activity.html"><i class="fas fa-edit"></i> 報名</a></li>
+                    <li><a href="login.html"><i class="fas fa-sign-in-alt"></i> 登入</a></li>
+                    <li><a href="register.html"><i class="fas fa-user-plus"></i> 註冊</a></li>
+                </ul>
+            </div>
+            <div class="logo">
+                <img src="./image/logo.png" alt="網站Logo">
+                <h1>香港雷藏寺</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html"> <i class="fas fa-home"></i> 主頁</a></li>
+                <li><a href="activities.html"> <i class="fas fa-calendar-alt"></i> 活動</a></li>
+                <li><a href="ceremonies.html"> <i class="fas fa-place-of-worship"></i> 法會 </a>
+                </li>
+                <li class="dropdown">
+                    <a href="register-activity.html"><i class="fas fa-edit"></i> 報名 <i
+                            class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="page4.html">法會報名表格</a>
+                        <a href="page1.html">供奉光明燈報名表</a>
+                        <a href="page2.html">供奉長生祿位報名表</a>
+                        <a href="page3.html">供奉太歲報名表</a>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="utility-buttons">
+                <a href="login.html" class="btn btn-primary">登入</a>
+                <a href="register.html" class="btn btn-outline">註冊</a>
+
+
+                <div class="overlay"></div>
+
+                <div class="language-switcher">
+                    <select id="language-select">
+                        <option value="zh-Hant">繁體中文</option>
+                        <option value="zh-Hans">简体中文</option>
+                        <option value="en">English</option>
+                    </select>
+                </div>
+
+                <div class="font-size-switcher">
+                    <select id="font-size-select">
+                        <option value="small">小字</option>
+                        <option value="medium" selected>中字</option>
+                        <option value="large">大字</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="register-container">
+        <div class="register-box">
+            <div class="register-title">
+                <h2>創建您的帳戶</h2>
+                <p>加入香港雷藏寺，獲取更多法會資訊與活動通知</p>
+            </div>
+            
+            <form class="register-form" id="registerForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="first-name">姓氏</label>
+                        <input type="text" id="first-name" name="first-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name">名字</label>
+                        <input type="text" id="last-name" name="last-name" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">電子郵件</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">電話號碼</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">密碼</label>
+                    <input type="password" id="password" name="password" required minlength="8">
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirm-password">確認密碼</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="gender">性別</label>
+                    <select id="gender" name="gender">
+                        <option value="male">男</option>
+                        <option value="female">女</option>
+                        <option value="other">其他</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="birthday">出生日期</label>
+                    <input type="date" id="birthday" name="birthday">
+                </div>
+                
+                <button type="submit" class="btn btn-primary register-btn">註冊</button>
+                
+                <div class="login-link">
+                    已經有帳號？ <a href="login.html">立即登入</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="social-links">
+                <h3>關注我們</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/hklts"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.youtube.com/@hkbhklts"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-text">
+                <p>如有任何問題，請與本寺聯絡。
+                    If you have any registration or donation problems,
+                    please contact us at the phone number or email below</p>
+                <p>電話: 852─23888987</p>
+                <p>電子郵件: info@hklts.org.hk</p>
+                <p>© 2025 香港雷藏寺 版權所有</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // 表單驗證
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            
+            if(password !== confirmPassword) {
+                alert('密碼與確認密碼不相符');
+                return;
+            }
+            
+            if(!document.getElementById('agree-terms').checked) {
+                alert('請同意服務條款和隱私政策');
+                return;
+            }
+            
+            // 這裡可以添加AJAX提交表單的代碼
+            alert('註冊成功！將跳轉至會員中心');
+            window.location.href = 'member.html';
+            
+            /*
+            // 實際應用中應該使用AJAX提交
+            fetch('/api/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    firstName: document.getElementById('first-name').value,
+                    lastName: document.getElementById('last-name').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    password: password,
+                    gender: document.getElementById('gender').value,
+                    birthday: document.getElementById('birthday').value
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.success) {
+                    window.location.href = 'member.html';
+                } else {
+                    alert(data.message || '註冊失敗，請稍後再試');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('註冊過程中發生錯誤');
+            });
+            */
+        });
+        
+        // 語言切換功能
+        document.getElementById('language-select').addEventListener('change', function() {
+            // 這裡可以實現語言切換功能
+            alert('將切換語言到: ' + this.value);
+        });
+
+        const hamburger = document.querySelector('.hamburger');
+        const mobileNav = document.querySelector('.mobile-nav');
+        const overlay = document.querySelector('.overlay');
+
+        hamburger.addEventListener('click', function () {
+            this.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+            overlay.classList.toggle('active');
+        });
+
+        overlay.addEventListener('click', function () {
+            hamburger.classList.remove('active');
+            mobileNav.classList.remove('active');
+            this.classList.remove('active');
+        });
+
+        // 點擊移動導航鏈接後關閉菜單
+        document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileNav.classList.remove('active');
+                overlay.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
